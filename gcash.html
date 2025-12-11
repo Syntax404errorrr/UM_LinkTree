@@ -1,72 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate via GCash</title>
-  <style>
-    body {
-      background: #000;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate via GCash</title>
+    <style>
+        body {
+            background: #000;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .card {
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(12px);
-      width: 350px;
-      padding: 25px 20px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-    .title {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #00f700;
-    }
 
-    img {
-      width: 230px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-    }
+        .card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+            width: 350px;
+            padding: 25px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
 
-    .back {
-      display: inline-block;
-      margin-top: 20px;
-      background: rgba(80, 80, 80, 0.4);
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+        .title {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #00f700;
+        }
 
-    .back:hover {
-      background: rgba(80, 80, 80, 0.7);
-    }
-  </style>
+        img {
+            width: 230px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(80, 80, 80, 0.4);
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: rgba(80, 80, 80, 0.7);
+        }
+    </style>
 </head>
+
 <body>
+    <canvas id="matrix"></canvas>
+    <div class="card">
+        <div class="title">GCash Donation</div>
+        <p>Scan the QR below to donate via GCash:</p>
 
-  <div class="card">
-    <div class="title">GCash Donation</div>
-    <p>Scan the QR below to donate via GCash:</p>
+        <img src="assets/gcashqr.jpg" alt="GCash QR">
 
-    <img src="assets/gcashqr.jpg" alt="GCash QR">
+        <a href="donation.html" class="back">Back to Donation Options</a>
+    </div>
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
 
-    <a href="donation.html" class="back">Back to Donation Options</a>
-  </div>
+        // Full screen
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const binary = "01";
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const drops = new Array(columns).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0f0";
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 50);
+
+        // Auto resize
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 
 </body>
+
 </html>
