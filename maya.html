@@ -8,40 +8,52 @@
     body {
       background: #000;
       font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 20px;
-      color: #fff;
     }
+
     .card {
       background: rgba(26, 26, 26, 0.6);
       backdrop-filter: blur(12px);
       width: 350px;
-      padding: 25px;
+      padding: 25px 20px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 20px rgba(255,255,255,0.1);
     }
+
     .title {
       font-size: 26px;
       margin-bottom: 10px;
       color: #00f700;
     }
+
     img {
-      width: 220px;
-      margin: 15px 0;
+      width: 230px;
+      display: block;
+      margin: 20px auto;
       border-radius: 10px;
     }
+
     .back {
-      margin-top: 15px;
-      color: #aaa;
-      font-size: 14px;
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(80, 80, 80, 0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
       text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      transition: 0.3s;
     }
+
     .back:hover {
-      text-decoration: underline;
+      background: rgba(80, 80, 80, 0.7);
     }
   </style>
 </head>
