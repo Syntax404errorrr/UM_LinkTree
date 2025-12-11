@@ -36,7 +36,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
-        /* Updated title class */
         .title-text {
             font-size: 26px;
             margin-bottom: 10px;
@@ -44,25 +43,11 @@
             font-weight: 700;
         }
 
-        /* Tile for QR container */
-        .tile {
-            background: rgba(40, 40, 40, 0.6);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 15px 0;
-            text-align: center;
-            transition: 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .tile:hover {
-            background: rgba(60, 60, 60, 0.7);
-        }
-
         img {
             width: 230px;
             border-radius: 10px;
-            margin: 10px 0;
+            margin: 20px auto;
+            display: block;
         }
 
         .back {
@@ -88,11 +73,9 @@
 
     <div class="card">
         <div class="title-text">Maya Donation</div>
-        <p>Scan the QR code below</p>
+        <p>Scan the QR below to donate via Maya</p>
 
-        <div class="tile">
-            <img src="assets/mayaqr.jpg" alt="Maya QR">
-        </div>
+        <img src="assets/maya.jpg" alt="Maya QR">
 
         <a href="donation.html" class="back">Back to Donation Options</a>
     </div>
@@ -120,9 +103,7 @@
                 const text = binary[Math.floor(Math.random() * binary.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
 
                 drops[i]++;
             }
