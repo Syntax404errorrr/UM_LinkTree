@@ -1,134 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donation Options</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #000;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #fff;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Options</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #000;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    
-    .card {
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(12px);
-      padding: 20px 20px 40px; /* extra bottom padding for the back button */
-      border-radius: 20px;
-      width: 350px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-    .title {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #00f700;
-      font-weight: bold;
-    }
+        .card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 20px 20px 40px;
+            /* extra bottom padding for the back button */
+            border-radius: 20px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
 
-    .method, .back {
-      background: #333;
-      padding: 12px;
-      border-radius: 10px;
-      margin: 10px 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: 0.3s;
-      text-decoration: none;
-      color: #fff;
-      font-size: 14px;
-    }
+        .title {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #00f700;
+            font-weight: bold;
+        }
 
-    .method:hover, .back:hover {
-      background: #555;
-    }
-  </style>
+        .method,
+        .back {
+            background: #333;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .method:hover,
+        .back:hover {
+            background: #555;
+        }
+    </style>
 </head>
+
 <body>
 
-  <canvas id="matrix"></canvas>
-  <div class="card">
-    <div class="title">Donation Methods</div>
-    <p>Choose your preferred payment method below:</p>
+    <canvas id="matrix"></canvas>
+    <div class="card">
+        <div class="title">Donation Methods</div>
+        <p>Choose your preferred payment method below:</p>
 
-    <a href="gcash.html" class="method">
-      <i class="fas fa-mobile-alt"></i> GCash
-    </a>
+        <a href="gcash.html" class="method">
+            <i class="fas fa-mobile-alt"></i> GCash
+        </a>
 
-    <a href="maya.html" class="method">
-      <i class="fas fa-wallet"></i> Maya
-    </a>
+        <a href="maya.html" class="method">
+            <i class="fas fa-wallet"></i> Maya
+        </a>
 
-    <a href="seabank.html" class="method">
-      <i class="fas fa-university"></i> Sea Bank Transfer
-    </a>
+        <a href="seabank.html" class="method">
+            <i class="fas fa-university"></i> Sea Bank Transfer
+        </a>
 
-    <a href="bdo.html" class="method">
-      <i class="fas fa-building"></i> BDO Bank Transfer
-    </a>
+        <a href="bdo.html" class="method">
+            <i class="fas fa-building"></i> BDO Bank Transfer
+        </a>
 
-    <a href="index.html" class="back">
-      <i class="fas fa-home"></i>Back to Home
-    </a>
-  </div>
+        <a href="index.html" class="back">
+            <i class="fas fa-home"></i>Back to Home
+        </a>
+    </div>
 
-  <script>
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-const binary = "01";
-const fontSize = 16;
-const columns = Math.floor(canvas.width / fontSize);
+        const binary = "01";
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
 
-const drops = new Array(columns).fill(1);
+        const drops = new Array(columns).fill(1);
 
-function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#0f0";
-  ctx.font = `${fontSize}px monospace`;
+            ctx.fillStyle = "#0f0";
+            ctx.font = `${fontSize}px monospace`;
 
-  for (let i = 0; i < drops.length; i++) {
-    const text = binary[Math.floor(Math.random() * binary.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            for (let i = 0; i < drops.length; i++) {
+                const text = binary[Math.floor(Math.random() * binary.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
 
-    drops[i]++;
-  }
-}
+                drops[i]++;
+            }
+        }
 
-setInterval(draw, 50);
+        setInterval(draw, 50);
 
-// Auto resize
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
+        // Auto resize
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
+
 </html>
