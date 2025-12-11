@@ -17,6 +17,13 @@
       padding: 20px;
     }
 
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
     .card {
       background: rgba(26, 26, 26, 0.6);
       backdrop-filter: blur(12px);
@@ -57,6 +64,7 @@
 </head>
 <body>
 
+  <canvas id="matrix"></canvas>
   <div class="card">
     <div class="title">Donation Methods</div>
     <p>Choose your preferred payment method below:</p>
