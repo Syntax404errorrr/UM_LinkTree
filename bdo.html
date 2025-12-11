@@ -19,7 +19,6 @@
             overflow: hidden;
         }
 
-
         canvas {
             position: fixed;
             top: 0;
@@ -37,15 +36,38 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
-        .title {
+        /* Same title style as SeaBank */
+        .title-text {
             font-size: 26px;
             margin-bottom: 10px;
             color: #00f700;
+            font-weight: 700;
         }
 
-        .info {
-            margin: 12px 0;
-            font-size: 16px;
+        .tile {
+            background: rgba(40, 40, 40, 0.6);
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: left;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tile:hover {
+            background: rgba(60, 60, 60, 0.7);
+        }
+
+        .label {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+            color: #ffffff;
         }
 
         .back {
@@ -68,13 +90,25 @@
 
 <body>
     <canvas id="matrix"></canvas>
+
     <div class="card">
-        <div class="title">BDO Bank Transfer</div>
+        <div class="title-text">BDO Bank Transfer</div>
         <p>Use the bank details below</p>
 
-        <div class="info"><b>Account Name:</b> Your Name Here</div>
-        <div class="info"><b>Account Number:</b> 0000-0000-00</div>
-        <div class="info"><b>Branch:</b> Your Branch</div>
+        <div class="tile">
+            <div class="label">Account Name</div>
+            <div class="value">Your Name Here</div>
+        </div>
+
+        <div class="tile">
+            <div class="label">Account Number</div>
+            <div class="value">0000-0000-00</div>
+        </div>
+
+        <div class="tile">
+            <div class="label">Branch</div>
+            <div class="value">Your Branch</div>
+        </div>
 
         <a href="donation.html" class="back">Back to Donation Options</a>
     </div>
@@ -83,14 +117,12 @@
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
-        // Full screen
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const binary = "01";
         const fontSize = 16;
         const columns = Math.floor(canvas.width / fontSize);
-
         const drops = new Array(columns).fill(1);
 
         function draw() {
@@ -114,7 +146,6 @@
 
         setInterval(draw, 50);
 
-        // Auto resize
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
