@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation Options</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #000;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .title {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #00f700;
+      font-weight: bold;
+    }
+
+    .method {
+      background: #333;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+
+    .method:hover {
+      background: #555;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      display: block;
+    }
+
+    .back {
+      margin-top: 15px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="title">Donation Methods</div>
+    <p>Choose your preferred payment method below:</p>
+
+    <a href="gcash.html" class="method">
+      <i class="fas fa-mobile-alt"></i> GCash
+    </a>
+
+    <a href="bpi.html" class="method">
+      <i class="fas fa-university"></i> BPI Bank Transfer
+    </a>
+
+    <a href="bdo.html" class="method">
+      <i class="fas fa-building"></i> BDO Bank Transfer
+    </a>
+
+    <a href="maya.html" class="method">
+      <i class="fas fa-wallet"></i> Maya
+    </a>
+
+    <a href="index.html" class="back">← Back to Home</a>
+  </div>
+
+</body>
+</html>
