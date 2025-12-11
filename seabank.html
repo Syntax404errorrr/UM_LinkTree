@@ -3,56 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate via BPI</title>
+  <title>Donate via SeaBank</title>
   <style>
     body {
       background: #000;
       font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 20px;
-      color: #fff;
     }
+
     .card {
       background: rgba(26, 26, 26, 0.6);
       backdrop-filter: blur(12px);
       width: 350px;
-      padding: 25px;
+      padding: 25px 20px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 20px rgba(255,255,255,0.1);
     }
+
     .title {
       font-size: 26px;
       margin-bottom: 10px;
       color: #00f700;
     }
+
     .info {
       margin: 12px 0;
       font-size: 16px;
     }
+
     .back {
-      margin-top: 15px;
-      color: #aaa;
-      font-size: 14px;
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(80, 80, 80, 0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
       text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      transition: 0.3s;
     }
+
     .back:hover {
-      text-decoration: underline;
+      background: rgba(80, 80, 80, 0.7);
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <div class="title">BPI Bank Transfer</div>
+    <div class="title">Sea Bank Transfer</div>
     <p>Use the bank details below:</p>
 
     <div class="info"><b>Account Name:</b> Your Name Here</div>
     <div class="info"><b>Account Number:</b> 0000-0000-00</div>
-    <div class="info"><b>Branch:</b> Your Branch (optional)</div>
+    <div class="info"><b>Branch:</b> Your Branch</div>
 
     <a href="donation.html" class="back">Back to Donation Options</a>
   </div>
