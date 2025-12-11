@@ -21,11 +21,10 @@
       background: rgba(26, 26, 26, 0.6);
       backdrop-filter: blur(12px);
       width: 350px;
-      padding: 25px 20px 60px; /* added space for bottom button */
+      padding: 25px 20px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 20px rgba(255,255,255,0.1);
-      position: relative;
     }
 
     .title {
@@ -37,28 +36,24 @@
     img {
       width: 230px;
       display: block;
-      margin: 20px auto; /* ensures perfect centering */
+      margin: 20px auto;
       border-radius: 10px;
     }
 
-    /* Fixed bottom button */
     .back {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(26, 26, 26, 0.7);
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(80, 80, 80, 0.4);
       padding: 10px 20px;
       border-radius: 10px;
       text-decoration: none;
       color: #fff;
       font-size: 14px;
-      backdrop-filter: blur(10px);
       transition: 0.3s;
     }
 
     .back:hover {
-      background: rgba(80, 80, 80, 0.8);
+      background: rgba(80, 80, 80, 0.7);
     }
   </style>
 </head>
@@ -69,9 +64,9 @@
     <p>Scan the QR below to donate via GCash:</p>
 
     <img src="assets/gcashqr.jpg" alt="GCash QR">
-  </div>
 
-  <a href="donation.html" class="back">← Back to Donation Options</a>
+    <a href="donation.html" class="back">← Back to Donation Options</a>
+  </div>
 
 </body>
 </html>
